@@ -1,91 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Particle Background Login</title>
+    <style>
+      /* ---- reset ---- */
+      body {
+        margin: 0;
+        font: normal 75% Arial, Helvetica, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        overflow: hidden;
+        background-color: #ead8b1; /* Light background color */
+      }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+      /* ---- particles.js container ---- */
+      #particles-js {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        z-index: 0; /* Make sure particles are behind the form */
+      }
 
-<body>
+      /* Form Styles with Glassmorphism */
+      form {
+        background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+        backdrop-filter: blur(10px); /* Blurs the background behind the form */
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.18); /* A subtle border */
+        width: 100%;
+        max-width: 400px; /* Maximum width for the form */
+        margin: 20px;
+        position: relative; /* Ensure form is above particles */
+        z-index: 1; /* Keep form on top */
+      }
+
+      /* General Styles */
+      h1,
+      h2,
+      h3,
+      p {
+        color: #333;
+        text-align: center; /* Center-align text */
+      }
+
+      /* Styling for buttons */
+      button,
+      input[type="submit"] {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 10px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 100%; /* Make buttons full-width */
+      }
+
+      button:hover,
+      input[type="submit"]:hover {
+        background-color: #82a9d3;
+      }
+
+      /* Links inside forms */
+      a {
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      label {
+        display: inline;
+        margin: 10px 0 5px;
+        font-weight: bold;
+        color: #001f3f;
+        font-size: large;
+      }
+
+      input[type="email"],
+      input[type="password"],
+      input[type="checkbox"] {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      /* Styling for the buttons in form */
+      input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0 15px;
+        border: 1px solid #ccc;
+        background-color: #ff4500;
+        color: black;
+        font-weight: bold;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #218838;
+      }
+
+      /* Mobile responsiveness */
+      @media (max-width: 600px) {
+        form {
+          width: 90%;
+        }
+
+        button,
+        input[type="submit"] {
+          padding: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- particles.js container -->
+    <div id="particles-js"></div>
+
     <form id="loginForm">
-        <div class="form-group">
-            <label for="email">Email Address <span style="color: red;">*</span></label>
-            <input type="email" id="email" required>
+      <h1>Login</h1>
+      <div class="form-group">
+        <label for="email"
+          >Email Address <span style="color: red">*</span></label
+        >
+        <input type="email" id="email" required />
 
-
-            <label for="password">Password <span style="color: red;">*</span></label>
-            <input type="password" id="password" required min="8" max="16">
-        </div>
-        <div class="form-group">
+        <label for="password">Password <span style="color: red">*</span></label>
+        <input type="password" id="password" required min="8" max="16" />
+      </div>
+      <!-- <div class="form-group">
             <input type="checkbox" id="newsletter" required>
-            <label for="newsletter"><span style="font-weight: 600; font-size: 15px; ">I would like to stay up to date
-                    with changing technology. I agree to receive
-                    personalized messages from CloneScript.</span></label>
+            <label for="newsletter"><span style="font-weight: 600; font-size: 15px;">I would like to stay up to date with changing technology. I agree to receive personalized messages from CloneScript.</span></label>
             <br><label><a href="login.html"><span style="font-size: 14px;">Read More</span></a></label>
         </div>
         <div class="form-group">
             <input type="checkbox" id="terms" required>
-            <label for="terms"><span style="font-weight: 600; font-size: 15px;">I have read and accepted the <a
-                        href="#">terms <span>&</span> conditions</a> and the <a href="#">privacy
-                        policy</a>.</span></label>
-        </div>
-
-
-
-        <div style="margin-top: 20px; padding: 10px;width: 500px; ">
-            <input type="submit" value="Continue" class="yellow_container_btn2"
-                style=" background-color: black; color: white; margin-left: -10px; width: 100px; ">
-
-
-
-
-            <!-- <div class="btn-back" style="margin-left: 15px; border: 1px solid black; width: 97px; height: 45px; margin-top: 5px;"> -->
-        </div>
-        </div>
+            <label for="terms"><span style="font-weight: 600; font-size: 15px;">I have read and accepted the <a href="#">terms <span>&</span> conditions</a> and the <a href="#">privacy policy</a>.</span></label>
+        </div> -->
+      <div>
+        <input type="submit" value="Continue" />
+      </div>
     </form>
-</body>
 
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <script>
+      // particles.js configuration
+      particlesJS("particles-js", {
+        particles: {
+          number: { value: 80, density: { enable: true, value_area: 800 } },
+          color: { value: "#ffffff" },
+          shape: {
+            type: "circle",
+            stroke: { width: 0, color: "#000000" },
+            polygon: { nb_sides: 5 },
+          },
+          opacity: {
+            value: 0.5,
+            random: false,
+            anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false },
+          },
+          size: {
+            value: 5,
+            random: true,
+            anim: { enable: false, speed: 40, size_min: 0.1, sync: false },
+          },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: "#ffffff",
+            opacity: 0.4,
+            width: 1,
+          },
+          move: {
+            enable: true,
+            speed: 6,
+            direction: "none",
+            random: false,
+            straight: false,
+            out_mode: "out",
+            bounce: false,
+            attract: { enable: false, rotateX: 600, rotateY: 1200 },
+          },
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: { enable: true, mode: "repulse" },
+            onclick: { enable: true, mode: "push" },
+            resize: true,
+          },
+          modes: {
+            grab: { distance: 400, line_linked: { opacity: 1 } },
+            bubble: {
+              distance: 400,
+              size: 40,
+              duration: 2,
+              opacity: 8,
+              speed: 3,
+            },
+            repulse: { distance: 200, duration: 0.4 },
+            push: { particles_nb: 4 },
+            remove: { particles_nb: 2 },
+          },
+        },
+        retina_detect: true,
+      });
+    </script>
+  </body>
 </html>
-
 <script>
-    function loginfn() {
-        event.preventDefault();
-        console.log("username");
-        const username = document.getElementById("email").value.trim();
-        const password = document.getElementById("password").value.trim();
+  function loginfn() {
+    event.preventDefault();
+    console.log("username");
+    const username = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
 
-        const api = "AIzaSyDHO9-l6UOCnT2HN7EdAJczOb3Se8LDTQY";
+    const api = "AIzaSyDHO9-l6UOCnT2HN7EdAJczOb3Se8LDTQY";
 
-        const raw = JSON.stringify({
-            "email": username,
-            "password": password
-        });
+    const raw = JSON.stringify({
+      email: username,
+      password: password,
+    });
 
-        const requestOptions = {
-            method: "POST",
-            body: raw,
-            redirect: "follow",
-        };
+    const requestOptions = {
+      method: "POST",
+      body: raw,
+      redirect: "follow",
+    };
 
-        fetch(
-            `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${api}`,
-            requestOptions
-        )
-            .then((response) => response.json())
-            .then((result) => {
-                result.idToken
-                    ? (alert("Welcome Back, Kick Start your coding journey"),
-                        localStorage.setItem("idToken", result.idToken),
-                        (window.location.href = "../index.html"))
-                    : alert("Invalid credentials. Please try again.");
-            })
-            .catch((error) => console.log("error", error));
+    fetch(
+      `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${api}`,
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => {
+        result.idToken
+          ? (alert("Welcome Back, Kick Start your coding journey"),
+            localStorage.setItem("idToken", result.idToken),
+            (window.location.href = "particles.html"))
+          : alert("Invalid credentials. Please try again.");
+      })
+      .catch((error) => console.log("error", error));
+  }
 
-
-    }
-
-    document.getElementById("loginForm").addEventListener("submit", loginfn);
-
+  document.getElementById("loginForm").addEventListener("submit", loginfn);
 </script>
